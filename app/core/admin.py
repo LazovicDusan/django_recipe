@@ -3,6 +3,7 @@ Django admin customization.
 """
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin as BaseUserAdmin
+from django.contrib.admin import ModelAdmin
 from django.utils.translation import gettext_lazy as _
 
 from core import models
@@ -44,6 +45,13 @@ class UserAdmin(BaseUserAdmin):
     )
 
 
+class RecipeAdmin(ModelAdmin):
+    """Define the admin pages for recipes."""
+    ordering = ['id']
+    list_display = ['id', 'title', 'description', 'user', 'user_id']
+
+
 admin.site.register(models.User, UserAdmin)
+admin.site.register(models.Recipe, RecipeAdmin)
 
 
