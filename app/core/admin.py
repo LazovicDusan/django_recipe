@@ -53,5 +53,6 @@ class RecipeAdmin(ModelAdmin):
 
 admin.site.register(models.User, UserAdmin)
 admin.site.register(models.Recipe, RecipeAdmin)
-
+admin.site.register(models.Tag)
+admin.site.register(models.Ingredient)
 
